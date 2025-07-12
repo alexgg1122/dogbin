@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dogbin - 简单的文本分享服务</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Dogbin</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">新建</a></li>
+                    <li><a href="#">最近</a></li>
+                    <li><a href="#">关于</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="editor-container">
+            <div class="editor-header">
+                <input type="text" id="paste-title" placeholder="标题（可选）">
+                <select id="syntax-select">
+                    <option value="plain">纯文本</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="python">Python</option>
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="java">Java</option>
+                    <option value="go">Go</option>
+                </select>
+                <select id="expiration-select">
+                    <option value="0">永不过期</option>
+                    <option value="60">1小时</option>
+                    <option value="1440">1天</option>
+                    <option value="10080" selected>7天</option>
+                    <option value="43200">30天</option>
+                </select>
+            </div>
+            <textarea id="paste-content" placeholder="在此输入您要分享的文本..."></textarea>
+            <div class="editor-footer">
+                <button id="save-button" class="primary-button">保存</button>
+                <div class="char-count">0 字符</div>
+            </div>
+        </div>
+
+        <div class="view-container hidden">
+            <div class="view-header">
+                <h2 id="view-title">未命名</h2>
+                <div class="view-meta">
+                    <span id="view-date"></span>
+                    <span id="view-syntax"></span>
+                </div>
+            </div>
+            <pre><code id="view-content"></code></pre>
+            <div class="view-footer">
+                <button id="copy-button" class="secondary-button">复制</button>
+                <button id="new-button" class="primary-button">新建</button>
+                <button id="raw-button" class="secondary-button">原始</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Dogbin - <a href="https://github.com/alexgg1122/dogbin" target="_blank">GitHub</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
